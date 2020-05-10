@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+    postgresq:
+        container_name: master-dbk
+        image: 'bitnami/postgresql:latest'
+        ports: 
+                - '15432:5432'
+        environment:
+                - POSTGRESQL_USERNAME=postgres
+                - ALLOW_EMPTY_PASSWORD=yes
+                - POSTGRESQL_DATABASE=test
+                - POSTGRESQL_REPLICATION_MODE=master
+                - POSTGRESQL_MASTER_HOST='192.168.0.1'
+                - POSTGRESQL_MASTER_PORT_NUMBER='5432'
+                - POSTGRESQL_REPLICATION_USER=postgres
+                - POSTGRESQL_REPLICATION_PASSWORD=test
